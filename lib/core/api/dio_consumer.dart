@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:login_api/core/api/api_consumer.dart';
 import 'package:login_api/core/api/api_inter_ceptors.dart';
+import 'package:login_api/core/api/end_points.dart';
 import 'package:login_api/core/errors/error_model.dart';
 import 'package:login_api/core/errors/excaptions.dart';
 
@@ -8,7 +9,7 @@ class DioConsumer extends ApiConsumer {
   final Dio dio;
 
   DioConsumer({required this.dio}) {
-    dio.options.baseUrl = 'https://food-api-omega.vercel.app/api/v1/';
+    dio.options.baseUrl = EndPoints.baseUrl;
     dio.interceptors.add(ApiInterCeptors());
     dio.interceptors.add(LogInterceptor(
       request: true,
